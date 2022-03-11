@@ -1,0 +1,131 @@
+.toptag {
+    text-align: right;
+}
+
+#carouselExampleDark{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  
+
+.carousel-control-prev {
+    margin-left: -15px;
+  }
+  
+.carousel-control-next{
+    margin-right: -15px;
+  }
+
+  .carousel-control-prev-icon2,
+  .carousel-control-next-icon2 {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 100% 100%;
+  }
+
+
+  .carousel-control-next-icon11:after {
+    content: '>';
+    font-size: 55px;
+    color: red;
+  }
+  
+  .carousel-control-prev-icon11:after {
+    content: '<';
+    font-size: 55px;
+    color: red;
+  }
+  
+  .carousel-control-prev-icon2:after {
+    content: '<';
+    font-size: 30px;
+    color: red;
+  }
+  
+  .carousel-control-next-icon2:after {
+    content: '>';
+    font-size: 30px;
+    color: red;
+  }
+  
+  
+  .newy {
+  
+    color: red
+  }
+  
+  .carousel-control-prev-icon2,
+  .carousel-control-next-icon2 {
+    display: inline-block;
+  
+    background-repeat: no-repeat;
+   
+  } 
+
+  display: inline-block;
+  background: #3a6456;
+  
+  padding: 5px;
+  border-radius: 50px;
+
+  background: #796666;
+  padding: 10px;
+  height: 40px;
+chodzi
+  background: #796666;
+  padding: 50px;
+  border-radius: 50px
+
+  working
+
+  display: inline-block;
+  background: #796666;
+  
+  border-radius: 50px;
+  
+
+  working circle
+
+  display: inline-block;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 0px;
+
+  background: #fff;
+  border: 2px solid #666;
+  color: #666;
+  text-align: center;
+
+  font: 32px Arial, sans-serif;
+
+
+  display: inline-block;
+  width: 40px;
+  line-height: 40px;
+  border-radius: 60%;
+  text-align: center;
+  font-size: 32px;
+  border: 2px solid #666;
+
+  width: 45px;
+  line-height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  border: 2px solid #666;
+  
+
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  outline: black;
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  border: 1px solid black;
+  background-image: none;
+  padding: 3px;
+  text-align: center;

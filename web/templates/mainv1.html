@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load cart %}
+
+{% block content %}
+
+
+
+    
+    
+   
+
+  
+<!-- md, horizontal image -->
+<div class="row d-none d-sm-block no-gutters">
+	<img src="{% static '/web/images/main4.jpg' %}" class="img-fluid ms-n5" padding-right: 0; padding-left: 0; >
+</div>
+
+<!-- sm, vertical image -->
+<div class="row d-block d-sm-none">
+	<img src="{% static '/web/images/main4r.jpg' %}" class="w-auto img-fluid mx-auto d-block">
+</div>
+
+<div class="container-fluid ">
+	<div class="row">
+
+		<!-- all products button -->
+		<div class="col-2 d-none d-lg-block " id="allprodleft">
+			
+			<a href="{% url 'store' %}" class="btn ms-2 btn-outline-light btn-sm mx-auto d-block mt-3 " aria-current="true">All Products</a>
+			
+		</div>
+
+		<!-- cattegory button -->
+		<div class="col-10 offset-1 offset-lg-2 " id="allprodright">
+			
+			<div class="row row-cols-2 row-cols-sm-3 justify-content-center" >
+				{% for category in categories %}
+					<div class="col">
+						
+						<a href="{% url 'store' %}?category={{category.id}}" class="btn btn-outline-light  btn-sm me-2  mx-auto d-block mt-3">{{category.name}}</a>
+						
+					</div>
+				{% endfor %}
+			</div>
+
+		</div>
+	</div>
+			<!-- <div class="row justify-content-center">
+				<div class="col-4 offset-4 d-block d-sm-none" id="allprodright">
+			
+					<nav class="navbar navbar-expand-lg navbar-light bg-light">
+						<div class="container-fluid">
+						  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+								<span class="navbar-toggler-icon"></span>
+						  	</button>
+						  	<a class="navbar-brand">Select category</a>
+						  	<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+								<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+									<li class="nav-item">
+										<a class="nav-link active" aria-current="page" href="#">Home</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">Link</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+									</li>
+								</ul>
+								<form class="d-flex">
+									<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+									<button class="btn btn-outline-success" type="submit">Search</button>
+								</form>
+						  	</div>
+						</div>
+					</nav>
+
+				</div>
+			</div> -->
+	
+</div>
+
+
+
+
+
+
+        
+
+
+
+{% endblock content %}
+
+
+
+
+

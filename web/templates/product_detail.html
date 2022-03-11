@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load cart %}
+
+{% block content %}
+
+
+<body>
+  
+<div class="container mt-5" id="product-detail">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div>
+                <!--Carousel-->
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        
+                        <div class="carousel-inner">
+                
+                            {% for image in product.imageproduct_set.all %}
+                    
+                                <div class="carousel-item {% if forloop.first %} active {% endif %}">
+                                    <img src="{{ image.image.url }}" class="rounded d-block img-fluid mx-auto" height="600"  alt="...">
+                                </div>
+                            
+                            {% endfor %}
+
+                        </div>
+                    </a>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <!--Images below Carousel-->
+            <div class="row" >
+                <div class="col">
+                    <div class="row row-cols-6 mb-2">
+                        {% for image in product.imageproduct_set.all %}
+                            
+                            <img src="{{ image.image.url }}" class="rounded img-fluid mt-2" data-bs-target="#carouselExampleControls" data-bs-slide-to="{{ forloop.counter0 }}">                   
+                            
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            
+
+        <div class="col-12 col-md-6">
+            <p class="text-center">{{product.name}}</p>
+            <hr>
+            <p class="text-center">Price $: {{product.price}}.00</p>
+            <hr>
+            <p class="text-center">{{product.description}}</p>
+            <hr>
+            <p class="text-center">Category: {{product.category}}</p>
+            <hr>
+            <div class="raw ">
+                <div class="col-8 offset-2">
+                    
+                    <div class="row justify-content-center">
+                        
+                        {% if product|is_in_cart:request.session.cart %}
+
+                        <form action="{% url 'store' %}" method="post" class="col-1">
+                            {% csrf_token %}
+                            <input hidden type="text" value="{{product.id}}" name="product">
+                            <input hidden type="text" value="True" name="remove">
+                        <input type="submit" value="-" class="btn btn-dark ">
+                        </form>
+
+                        <div class=" ms-4 text-center mt-2 text-dark col-6">{{ product|cart_quantity:request.session.cart }} in Cart</div>
+
+                        <form action="{% url 'store' %}" method="post" class="col-1">
+                            {% csrf_token %}
+                            <input hidden type="text" value="{{product.id}}" name="product">
+                        <input type="submit" value="+" class="btn btn-dark ">
+                        </form>
+                        
+                        {% else %}
+
+                        <form method="post" action="{% url 'store' %}" class="btn btn-block">
+                            {% csrf_token %}
+                            <input hidden type="text" value="{{product.id}}" name="product">
+                            <input type="submit" class="btn btn-primary" value="Add to Cart">
+                        </form>
+
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+            <p class="fs-5 text text-center mt-5">I am sorry, I have used different pictures for one product. Only to complete this gallery.</p>
+        </div>
+    </div>
+
+
+   
+    
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+        
+                <div class="modal-header1">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                
+                <div class="modal-body1">
+                  
+                    
+                    <!-- Carousel -->
+                    <div id="carouselExampleControls1" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                    
+                            {% for image in product.imageproduct_set.all %}
+                        
+                                <div class="carousel-item {% if forloop.first %} active {% endif %}">
+                    
+                                    <img src="{{ image.image.url }}" class="rounded d-block img-fluid mx-auto" height="800"  alt="...">
+                                
+                                </div>
+                            
+                            {% endfor %}
+                    
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls1" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls1" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+  
+
+
+    
+</div>
+
+
+
+        
+
+
+
+{% endblock content %}
+
+
+
+
+
