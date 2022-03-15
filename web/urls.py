@@ -16,7 +16,7 @@ urlpatterns = [
     
     #path('', Index.as_view(), name='homepage'),
     #path('cart', auth_middleware(Cart.as_view()), name='cart'),
-    path('cart', Cart.as_view(), name='cart'),
+    path('cart', auth_middleware(Cart.as_view()), name='cart'),
     path('checkout/', auth_middleware(CheckOut.as_view()), name='checkout'),
     path('login/', views.login, name="login"),
     path('signup/', views.signup, name="signup"),
