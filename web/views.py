@@ -169,10 +169,15 @@ def logout(request):
 
 
 class Cart(View):
-    def get(self , request):
-        ids = list(request.session.get('cart').keys())
-        products = Product.objects.filter(id__in=ids)
+    def get(self, request):
+        cart = request.session.get('cart', None)
+        if not cart:
+            cart = {}
+        request.session['cart'] = cart
         
+        ids = list(request.session.get('cart').keys())
+        products = Product.get_products_by_id(ids)
+        print(products)
         return render(request , 'cart.html' , {'products' : products} )
 
 
