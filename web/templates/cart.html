@@ -7,7 +7,7 @@
 
 <div class="container">
    <div class="border rounded p-4 m-4">
-        <p class="display-4 pl-4 ml-4 btn btn-success rounded-pill">Your Cart</p>
+        <p class="display-4 pl-4 ml-4 btn btn-success " style="background-color:#56586d;">Your Cart</p>
         <hr>
         <table class="table">
             <thead>
@@ -25,7 +25,7 @@
                 {% for product in products %}
                 <tr>
                     <td>{{forloop.counter}}</td>
-                    <td><img style="height: 80px;" class="rounded-circle" src="{{product.image.url}}" alt=""></td>
+                    <td><img style="height: 80px;"  src="{{product.image.url}}" alt=""></td>
                     <td>{{product.name}}</td>
                     <td>{{product.price|currency}}</td>
                     <td>{{product|cart_quantity:request.session.cart}}</td>
@@ -46,7 +46,7 @@
         </table>
         <hr>
         <div class="m-3 p-3">
-            <a href="{% url 'checkout' %}" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-success col-lg-3 ">Check out</a>
+            <a href="{% url 'checkout' %}" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-success col-lg-3" style="background-color:#56586d">Check out</a>
         </div>
         
         

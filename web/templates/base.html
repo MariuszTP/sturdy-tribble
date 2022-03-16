@@ -23,7 +23,7 @@ href="{% static 'web/css/bootstrap.min.css' %}"/>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-sm navbar-custom">
+<nav class="navbar navbar-expand-sm navbar-dark">
     <a class="navbar-brand text-white" style="pointer-events: none;"></a>
     
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -85,8 +85,8 @@ href="{% static 'web/css/bootstrap.min.css' %}"/>
 {% endblock %}
 
 <div class="container-fluid bg-dark">
-    <div class="row justify-content-center ">
-        <div class="col-10 col-md-5">
+    <div class="row justify-content-right">
+        <div class="col-xs-9 offset-2 col-sm-8 offset-sm-3 col-md-3 offset-md-2 d-flex justify-content-start">
             <form action="" method="POST"> {% csrf_token %}
           
                 <div class="fs-6 text-white">Subject</div>
@@ -104,7 +104,7 @@ href="{% static 'web/css/bootstrap.min.css' %}"/>
       
             </form>
         </div>
-        <div class="col-10 col-md-5">
+        <div class="col-xs-9 offset-2 col-sm-8 offset-sm-3 col-md-5 text-start offset-md-2">
             <p class="fs-6 text-white mt-3"> Mariusz Turek profile on <a href="https://www.linkedin.com/in/mariusz-turek-39214a71/ ">Linked in</a></p>
             <p class="fs-6 text-white mt-3">email: turekpython@gmail.com</p>
             <p class="fs-6 text-white">phone: 0048 795 814 298</p>
