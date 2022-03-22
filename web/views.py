@@ -99,7 +99,7 @@ def login(request):
             if flag:
                 request.session['customer'] = customer.id
                 request.session['email'] = customer.email
-                return redirect("main")
+                return redirect("cart")
             else:
                 error_msg = "Email or Password is incorrect."
         else:
@@ -224,23 +224,10 @@ class CheckOut(View):
             order.save()
         request.session['cart'] = {}
 
-        return redirect('cart')
+#       return redirect('cart')
+        return render(request, 'cart.html')
 
 
-def reverse_url(request):
-    query_set=Product.objects.all()
-    context = {
-        'products' : query_set
-    }
-    return render(request, 'reverse_url.html', context)
-
-
-def jstry(request):
-    query_set=Product.objects.all()
-    context = {
-        'products' : query_set
-    }
-    return render(request, 'jstry.html', context)
 
 
 def product_detail(request, id):
@@ -263,10 +250,14 @@ def orderpage(request):
 
 
 
+
+
 class OrderView(View):
 
     def get(self , request ):
         customer = request.session.get('customer')
-        orders = Order.get_orders_by_customer(customer)
+        orders = Order.get_order_by_customer(customer)
         print(orders)
-        return render(request, 'orders.html', {'orders' : orders})
+        return render(request, 'order.html', {'orders' : orders})
+
+

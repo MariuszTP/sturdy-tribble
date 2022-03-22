@@ -7,6 +7,7 @@
 {% block content %}
 
 
+
 <body>
   
 <div class="container mt-5" id="product-detail">
@@ -15,7 +16,7 @@
             <div>
                 <!--Carousel-->
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                    <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal{{product.pk}}">
         
                         <div class="carousel-inner">
                 
@@ -108,7 +109,7 @@
     
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal{{product.pk}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
         
