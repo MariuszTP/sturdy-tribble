@@ -21,11 +21,9 @@
                         <div class="carousel-inner">
                 
                             {% for image in product.imageproduct_set.all %}
-                    
                                 <div class="carousel-item {% if forloop.first %} active {% endif %}">
-                                    <img src="{{ image.image.url }}" class="rounded d-block img-fluid mx-auto" height="600"  alt="...">
+                                    <img src="{{ image.image.url }}" class="rounded d-block img-fluid mx-auto" height="600"  data-bs-target="#carouselExampleControls1" data-bs-slide-to="{{ forloop.counter0 }}"  alt="...">
                                 </div>
-                            
                             {% endfor %}
 
                         </div>

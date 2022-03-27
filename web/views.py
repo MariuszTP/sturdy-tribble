@@ -6,6 +6,7 @@ from .models import *
 from .middlewares.auth import auth_middleware
 from django.views import View
 
+
 from django.core.mail import send_mail, BadHeaderError
 
 from web.models import Customer
@@ -99,7 +100,7 @@ def login(request):
             if flag:
                 request.session['customer'] = customer.id
                 request.session['email'] = customer.email
-                return redirect("cart")
+                return redirect("main")
             else:
                 error_msg = "Email or Password is incorrect."
         else:
@@ -251,13 +252,5 @@ def orderpage(request):
 
 
 
-
-class OrderView(View):
-
-    def get(self , request ):
-        customer = request.session.get('customer')
-        orders = Order.get_order_by_customer(customer)
-        print(orders)
-        return render(request, 'order.html', {'orders' : orders})
 
 

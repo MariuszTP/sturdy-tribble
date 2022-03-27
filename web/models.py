@@ -31,13 +31,6 @@ class Product(models.Model):
         return Product.objects.filter(id__in=cart_product_id)
 
 
-"""     @staticmethod
-    def get_all_products_by_categoryid(category_id):
-        if category_id:
-            return Products.objects.filter(category=category_id)
-        else:
-            return Products.get_all_products() """
-
 class ImageProduct(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True, null=True)
     image = models.ImageField(null=True, blank=False)
